@@ -30,20 +30,49 @@
         </style>
     </head>
     <body>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="src/js/alpine.min.js"></script>
         <script>
             Alpine.data('data', () => ({
                 data: {},
                 search: "*",
                 init() {
-                    fetch("data.json")
-                        .then(res => res.json())
-                        .then(json => {
-                            this.data = json;
-                            for (let key in json) {
-                                json[key] = json[key].filter(str => !str.includes(".mp4") && !str.includes(".MP4") && !str.includes("DS_STORE"));
+                    if (localStorage.getItem("qwerty") != "ytrewq") {
+                        Swal.fire({
+                            title: "Enter your password",
+                            input: "password",
+                            inputLabel: "Password",
+                            inputPlaceholder: "Enter your password",
+                            inputAttributes: {
+                                maxlength: "10",
+                                autocapitalize: "off",
+                                autocorrect: "off"
                             }
-                        })
+                        }).then(data => {
+                            if (data.value == "26072024") {
+                                localStorage.setItem("qwerty", "ytrewq")
+                                fetch("data.json")
+                                    .then(res => res.json())
+                                    .then(json => {
+                                        this.data = json;
+                                        for (let key in json) {
+                                            json[key] = json[key].filter(str => !str.includes(".mp4") && !str.includes(".MP4") && !str.includes("DS_STORE"));
+                                        }
+                                    })
+                            } else {
+                                history.back()
+                            }
+                        });
+                    } else {
+                        fetch("data.json")
+                                .then(res => res.json())
+                                .then(json => {
+                                    this.data = json;
+                                    for (let key in json) {
+                                        json[key] = json[key].filter(str => !str.includes(".mp4") && !str.includes(".MP4") && !str.includes("DS_STORE"));
+                                    }
+                                })
+                    }
                 },
                 doFilter(search) {
                     this.search = search
