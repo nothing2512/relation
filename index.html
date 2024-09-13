@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="dist/assets/bower_components/photoswipe/dist/default-skin/default-skin.css">
         <link rel="stylesheet" href="dist/assets/css/piroll.css">
         <link rel="stylesheet" href="dist/assets/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
         <script src="dist/assets/bower_components/jquery/dist/jquery.min.js"></script>
         <style>
             .pswp__img {
@@ -143,7 +144,7 @@
                 </ul>
                 <!-- END: Filter -->
 
-                <div class="nk-portfolio-list nk-isotope nk-isotope-2-cols nk-isotope-gap nk-popup-gallery">
+                <div class="nk-portfolio-list nk-isotope nk-isotope-2-cols nk-isotope-gap">
 
                     <template x-for="(x, i) in data.adis">
                         <template x-if="search == '*' || search == 'adis'">
@@ -151,8 +152,8 @@
                             <div class="nk-portfolio-item nk-portfolio-item-info-style-4">
                                 <a 
                                     x-bind:href="x" 
-                                    class="nk-gallery-item" 
-                                    data-size="1000x1000" >
+                                    class="nk-gallery-item hk-popup">
+
                                     <div class="nk-portfolio-item-image">
                                         <div x-bind:style='"background-image: url(\"" + x + "\");"'></div>
                                     </div>
@@ -330,5 +331,26 @@
         <!-- Demo -->
         <script src="dist/assets/js/demo.js"></script>
         <!-- END: Scripts -->
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+        <script type="text/javascript">
+            $('.hk-popup').magnificPopup({
+                type: 'image',
+                removalDelay: 300,
+                mainClass: 'mfp-fade',
+                gallery: {
+                    enabled: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300,
+                    easing: 'ease-in-out',
+                    opener: function (openerElement) {
+                        return openerElement;
+                    }
+                }
+            });
+
+        </script>
     </body>
 </html>
