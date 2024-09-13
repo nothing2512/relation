@@ -43,22 +43,6 @@
                             for (let key in json) {
                                 json[key] = json[key].filter(str => !str.includes(".mp4") && !str.includes(".MP4") && !str.includes("DS_STORE"));
                             }
-                            $('.hk-popup').magnificPopup({
-                                type: 'image',
-                                removalDelay: 300,
-                                mainClass: 'mfp-fade',
-                                gallery: {
-                                    enabled: true
-                                },
-                                zoom: {
-                                    enabled: true,
-                                    duration: 300,
-                                    easing: 'ease-in-out',
-                                    opener: function (openerElement) {
-                                        return openerElement;
-                                    }
-                                }
-                            });
                         })
                 },
                 doFilter(search) {
@@ -321,5 +305,26 @@
         <!-- END: Scripts -->
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+        <script type="text/javascript">
+            setTimeout(() => {
+                $('.hk-popup').magnificPopup({
+                    type: 'image',
+                    removalDelay: 300,
+                    mainClass: 'mfp-fade',
+                    gallery: {
+                        enabled: true
+                    },
+                    zoom: {
+                        enabled: true,
+                        duration: 300,
+                        easing: 'ease-in-out',
+                        opener: function (openerElement) {
+                            return openerElement;
+                        }
+                    }
+                });
+            }, 500)
+
+        </script>
     </body>
 </html>
