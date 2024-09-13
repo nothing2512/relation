@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hubungan Kita</title>
+        <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
+        <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
+        <meta name="author" content="robirurk">
+        <link rel="icon" type="image/png" href="dist/assets/images/favicon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="dist/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="dist/assets/bower_components/fontawesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="dist/assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+        <link rel="stylesheet" href="dist/assets/bower_components/flickity/dist/flickity.min.css">
+        <link rel="stylesheet" type="text/css" href="dist/assets/bower_components/photoswipe/dist/photoswipe.css">
+        <link rel="stylesheet" type="text/css" href="dist/assets/bower_components/photoswipe/dist/default-skin/default-skin.css">
+        <link rel="stylesheet" href="dist/assets/css/piroll.css">
+        <link rel="stylesheet" href="dist/assets/css/custom.css">
+        <script src="dist/assets/bower_components/jquery/dist/jquery.min.js"></script>
+        <style>
+            .pswp__img {
+                /* width: unset !important;
+                height: 90vh !important; */
+                width: 90vw !important;
+                height: unset !important;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="src/js/alpine.min.js"></script>
+        <script>
+            Alpine.data('data', () => ({
+                data: {},
+                search: "*",
+                init() {
+                    fetch("data.json")
+                        .then(res => res.json())
+                        .then(json => {
+                            this.data = json;
+                            for (let key in json) {
+                                json[key] = json[key].filter(str => !str.includes(".mp4") && !str.includes(".MP4") && !str.includes("DS_STORE"));
+                            }
+                        })
+                },
+                doFilter(search) {
+                    this.search = search
+                }
+            }))
+        </script>
+        
+        <header class="nk-header nk-header-opaque">
+            <nav class="nk-navbar nk-navbar-top">
+                <div class="container">
+                    <div class="nk-nav-table">
+                        <a href="index.html" class="nk-nav-logo">
+                            <img src="dist/assets/images/logo.svg" alt="" width="31">
+                        </a>
+                        <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                            <li class="active nk-drop-item">
+                                <a href="#"> Home </a>
+                            </li>
+                            <!-- <li>
+                                <a href="page-contact-us.html"> Contact </a>
+                            </li> -->
+                        </ul>
+                        <ul class="nk-nav nk-nav-right nk-nav-icons">
+                            <li class="single-icon hidden-lg-up">
+                                <a href="#" class="nk-navbar-full-toggle">
+                                    <span class="nk-icon-burger">
+                                        <span class="nk-t-1"></span>
+                                        <span class="nk-t-2"></span>
+                                        <span class="nk-t-3"></span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- END: Navbar -->
+        </header>
+        
+        <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
+            <div class="nk-nav-table">
+                <div class="nk-nav-row">
+                    <div class="container">
+                        <div class="nk-nav-header">
+                            <div class="nk-nav-logo">
+                                <a href="index.html" class="nk-nav-logo">
+                                    <img src="dist/assets/images/logo-light.svg" alt="" width="31">
+                                </a>
+                            </div>
+                            <div class="nk-nav-close nk-navbar-full-toggle">
+                                <span class="nk-icon-close"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nk-nav-row-full nk-nav-row">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <div class="nk-nav-table">
+                                <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
+                                    <ul class="nk-nav">
+                                        <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="nk-main bg-white">
+            <!-- START: Digital. Modern. Creative -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="nk-gap-5 mnt-4"></div>
+                        <h2 class="display-4">Hubungan <span class="text-main">Kita</span></h2>
+                        <div class="nk-gap mnt-5"></div>
+                        <p class="lead mb-30">Kisah perjalanan diantara kita yang dimulai pada 9 April 2024, berbagai suka dan duka telah kita alami dan hingga kini telah kita lewati berbagai rintangan.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Digital. Modern. Creative -->
+            <!-- START: Portfolio -->
+            <div class="container" x-data="data">
+
+                <!-- START: Filter -->
+                <ul class="nk-isotope-filter nk-isotope-filter-active text-left">
+                    <li class="active" x-on:click="doFilter('*')" data-filter="*">Semua</li>
+                    <li x-on:click="doFilter('adis')" data-filter="adis">Adis</li>
+                    <li x-on:click="doFilter('rifqi')" data-filter="rifqi">Rifqi</li>
+                    <li x-on:click="doFilter('firstMeet')" data-filter="firstMeet">First Meet</li>
+                    <li x-on:click="doFilter('tilikKawan')" data-filter="tilikKawan">Tilik Kawan</li>
+                    <li x-on:click="doFilter('gumukPangroso')" data-filter="gumukPangroso">Gumuk Pangroso</li>
+                    <li x-on:click="doFilter('nature')" data-filter="nature">Alam</li>
+                    <li x-on:click="doFilter('other')" data-filter="other">Lain-lain</li>
+                </ul>
+                <!-- END: Filter -->
+
+                <div class="nk-portfolio-list nk-isotope nk-isotope-2-cols nk-isotope-gap nk-popup-gallery">
+
+                    <template x-for="(x, i) in data.adis">
+                        <template x-if="search == '*' || search == 'adis'">
+                        <div class="nk-isotope-item" data-filter="adis">
+                            <div class="nk-portfolio-item nk-portfolio-item-info-style-4">
+                                <a 
+                                    x-bind:href="x" 
+                                    class="nk-gallery-item" 
+                                    data-size="1000x1000" >
+                                    <div class="nk-portfolio-item-image">
+                                        <div x-bind:style='"background-image: url(\"" + x + "\");"'></div>
+                                    </div>
+                                </a>
+                                <div class="nk-portfolio-item-info"></div>
+                            </div>
+                        </div>
+                        </template>
+                    </template>
+
+                    <template x-for="x in data.rifqi">
+                        <template x-if="search == '*' || search == 'rifqi'">
+                        <div class="nk-isotope-item" data-filter="rifqi">
+                            <div class="nk-portfolio-item nk-portfolio-item-info-style-4">
+                                <a 
+                                    x-bind:href="x" 
+                                    class="nk-gallery-item" 
+                                    data-size="1000x1000" >
+                                    <div class="nk-portfolio-item-image">
+                                        <div x-bind:style='"background-image: url(\"" + x + "\");"'></div>
+                                    </div>
+                                </a>
+                                <div class="nk-portfolio-item-info"></div>
+                            </div>
+                        </div>
+                        </template>
+                    </template>
+
+                    <template x-for="x in data.firstMeet">
+                        <template x-if="search == '*' || search == 'firstMeet'">
+                        <div class="nk-isotope-item" data-filter="firstMeet">
+                            <div class="nk-portfolio-item nk-portfolio-item-info-style-4">
+                                <a 
+                                    x-bind:href="x" 
+                                    class="nk-gallery-item" 
+                                    data-size="1000x1000" >
+                                    <div class="nk-portfolio-item-image">
+                                        <div x-bind:style='"background-image: url(\"" + x + "\");"'></div>
+                                    </div>
+                                </a>
+                                <div class="nk-portfolio-item-info"></div>
+                            </div>
+                        </div>
+                        </template>
+                    </template>
+
+                    <template x-for="x in data.tilikKawan">
+                        <template x-if="search == '*' || search == 'tilikKawan'">
+                        <div class="nk-isotope-item" data-filter="tilikKawan">
+                            <div class="nk-portfolio-item nk-portfolio-item-info-style-4">
+                                <a 
+                                    x-bind:href="x" 
+                                    class="nk-gallery-item" 
+                                    data-size="1000x1000" >
+                                    <div class="nk-portfolio-item-image">
+                                        <div x-bind:style='"background-image: url(\"" + x + "\");"'></div>
+                                    </div>
+                                </a>
+                                <div class="nk-portfolio-item-info"></div>
+                            </div>
+                        </div>
+                        </template>
+                    </template>
+
+                    <template x-for="x in data.gumukPangroso">
+                        <template x-if="search == '*' || search == 'gumukPangroso'">
+                        <div class="nk-isotope-item" data-filter="gumukPangroso">
+                            <div class="nk-portfolio-item nk-portfolio-item-info-style-4">
+                                <a 
+                                    x-bind:href="x" 
+                                    class="nk-gallery-item" 
+                                    data-size="1000x1000" >
+                                    <div class="nk-portfolio-item-image">
+                                        <div x-bind:style='"background-image: url(\"" + x + "\");"'></div>
+                                    </div>
+                                </a>
+                                <div class="nk-portfolio-item-info"></div>
+                            </div>
+                        </div>
+                        </template>
+                    </template>
+
+                    <template x-for="x in data.nature">
+                        <template x-if="search == '*' || search == 'nature'">
+                        <div class="nk-isotope-item" data-filter="nature">
+                            <div class="nk-portfolio-item nk-portfolio-item-info-style-4">
+                                <a 
+                                    x-bind:href="x" 
+                                    class="nk-gallery-item" 
+                                    data-size="1000x1000" >
+                                    <div class="nk-portfolio-item-image">
+                                        <div x-bind:style='"background-image: url(\"" + x + "\");"'></div>
+                                    </div>
+                                </a>
+                                <div class="nk-portfolio-item-info"></div>
+                            </div>
+                        </div>
+                        </template>
+                    </template>
+
+                    <template x-for="x in data.other">
+                        <template x-if="search == '*' || search == 'other'">
+                        <div class="nk-isotope-item" data-filter="other">
+                            <div class="nk-portfolio-item nk-portfolio-item-info-style-4">
+                                <a 
+                                    x-bind:href="x" 
+                                    class="nk-gallery-item" 
+                                    data-size="1000x1000" >
+                                    <div class="nk-portfolio-item-image">
+                                        <div x-bind:style='"background-image: url(\"" + x + "\");"'></div>
+                                    </div>
+                                </a>
+                                <div class="nk-portfolio-item-info"></div>
+                            </div>
+                        </div>
+                        </template>
+                    </template>
+
+                </div>
+                <div class="nk-gap-4"></div>
+            </div>
+            <!-- END: Portfolio -->
+            <!--
+    START: Footer
+-->
+            <!-- <footer class="nk-footer">
+                <div class="container">
+                    <div class="row vertical-gap">
+                        <div class="col-lg-5">
+                            <h3 class="h5 mb-20">Hubungan Kita</h3>
+                            <p class="mb-0">&copy; 2024 Rifqi & Adis. All rights reserved. <br> Design by Rifqi & Adis.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer> -->
+            <!-- END: Footer -->
+        </div>
+
+        <!-- START: Scripts -->
+        <!-- GSAP -->
+        <script src="dist/assets/bower_components/gsap/src/minified/TweenMax.min.js"></script>
+        <script src="dist/assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="dist/assets/bower_components/tether/dist/js/tether.min.js"></script>
+        <script src="dist/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- nK Share -->
+        <script src="dist/assets/plugins/nk-share/nk-share.js"></script>
+        <!-- Sticky Kit -->
+        <script src="dist/assets/bower_components/sticky-kit/dist/sticky-kit.min.js"></script>
+        <!-- Jarallax -->
+        <script src="dist/assets/bower_components/jarallax/dist/jarallax.min.js"></script>
+        <script src="dist/assets/bower_components/jarallax/dist/jarallax-video.min.js"></script>
+        <!-- Flickity -->
+        <script src="dist/assets/bower_components/flickity/dist/flickity.pkgd.min.js"></script>
+        <!-- Isotope -->
+        <script src="dist/assets/bower_components/isotope/dist/isotope.pkgd.min.js"></script>
+        <!-- Photoswipe -->
+        <script src="dist/assets/bower_components/photoswipe/dist/photoswipe.min.js"></script>
+        <script src="dist/assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js"></script>
+        <!-- Jquery Form -->
+        <script src="dist/assets/bower_components/jquery-form/dist/jquery.form.min.js"></script>
+        <!-- Jquery Validation -->
+        <script src="dist/assets/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+        <!-- Hammer.js -->
+        <script src="dist/assets/bower_components/hammer.js/hammer.min.js"></script>
+        <!-- Social Likes -->
+        <script src="dist/assets/bower_components/social-likes/dist/social-likes.min.js"></script>
+        <!-- NanoSroller -->
+        <script src="dist/assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+        <!-- Keymaster -->
+        <script src="dist/assets/bower_components/keymaster/keymaster.js"></script>
+        <!-- Piroll -->
+        <script src="dist/assets/js/piroll.min.js"></script>
+        <script src="dist/assets/js/piroll-init.js"></script>
+        <!-- Demo -->
+        <script src="dist/assets/js/demo.js"></script>
+        <!-- END: Scripts -->
+    </body>
+</html>
