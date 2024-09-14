@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<!--
+    Name: Piroll - Minimal & Clean Portfolio HTML Template
+    Version: 1.0.4
+    Author: robirurk, nK
+    Website: https://nkdev.info
+    Purchase: https://nkdev.info
+    Support: https://nk.ticksy.com
+    License: You must have a valid license purchased only from ThemeForest (the above link) in order to legally use the theme for your project.
+    Copyright 2020.
+-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Perjalanan Kami</title>
+        <meta name="description" content="Piroll - Clean & Minimal Portfolio HTML template.">
+        <meta name="keywords" content="portfolio, clean, minimal, blog, template, portfolio website">
+        <meta name="author" content="robirurk">
+        <link rel="icon" type="image/png" href="dist/assets/images/favicon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- START: Styles -->
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7cNunito+Sans:400,600,700%7cPT+Serif:400,400i" rel="stylesheet" type="text/css">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="dist/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="dist/assets/bower_components/fontawesome/css/font-awesome.min.css">
+        <!-- Stroke 7 -->
+        <link rel="stylesheet" href="dist/assets/bower_components/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+        <!-- Flickity -->
+        <link rel="stylesheet" href="dist/assets/bower_components/flickity/dist/flickity.min.css">
+        <!-- Photoswipe -->
+        <link rel="stylesheet" type="text/css" href="dist/assets/bower_components/photoswipe/dist/photoswipe.css">
+        <link rel="stylesheet" type="text/css" href="dist/assets/bower_components/photoswipe/dist/default-skin/default-skin.css">
+        <!-- Piroll -->
+        <link rel="stylesheet" href="dist/assets/css/piroll.css">
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="dist/assets/css/custom.css">
+        <!-- END: Styles -->
+        <!-- jQuery -->
+        <script src="dist/assets/bower_components/jquery/dist/jquery.min.js"></script>
+    </head>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="dist/assets/js/alpine.min.js"></script>
+        <script>
+            Alpine.data('data', () => ({
+                data: [
+                    {
+                        title: "Perkenalan",
+                        description: "Pertemuan tak terduga di sebuah platform digital membawakan sebuah cerita untuk dimulai. Berawal sebagai anonim dengan segala ke rasa asing satu sama lain.",
+                        date: "9 April 2024",
+                        location: "Telegram",
+                        image: "https://nothing-os.is3.cloudhost.id/relation/5ff42fcd-6c03-cd5b-c97a-4aacc405e37c.jpeg",
+                        redirect: "/gallery",
+                    },
+                    {
+                        title: "Pernyataan Cinta",
+                        description: "Bermula dari sebuah candaan hingga menuju serius, sang lelaki menyatakan cinta nya melalui voice call platform whatsapp yang berujung kesepakatan antara kedua belah pihak.",
+                        date: "26 Juli 2024",
+                        location: "Whatsapp",
+                        image: "https://nothing-os.is3.cloudhost.id/relation/5ff42fcd-741a-9bd8-2343-fed0cfdd506b.JPG",
+                        redirect: "/gallery",
+                    },
+                    {
+                        title: "First Meet",
+                        description: "Pertemuan pertama secara langsung di Malang, membawakan berbagai rasa yang bercampur aduk menjadi sebuah kesenangan tersendiri.",
+                        date: "23 Agustus 2024",
+                        location: "Toko Bu Yuyun",
+                        image: "https://nothing-os.is3.cloudhost.id/relation/5ff42fce-916a-8160-0ec7-3546abf156b7.jpeg",
+                        redirect: "/gallery",
+                    },
+                    {
+                        title: "Dating Pertama",
+                        description: "Kebersamaan yang dilakukan disebuah kafe di dekat rumah membuat hubungan yang terjalin menjadi semakin kuat diantara mereka.",
+                        date: "24 Agustus 2024",
+                        location: "Tilik Kawan",
+                        image: "https://nothing-os.is3.cloudhost.id/relation/5ff42fce-929b-f7cb-e887-152742878949.JPG",
+                        redirect: "/gallery",
+                    },
+                    {
+                        title: "Bromo vibes",
+                        description: "Perjalanan berlanjut dengan dating kedua dibawah kaki gunung Bromo yang amat sangat sejuk, membuat kedua nya merasakan segar nya pegunungan di Malang raya.",
+                        date: "31 Agustus 2024",
+                        location: "Gumuk Pangroso",
+                        image: "https://nothing-os.is3.cloudhost.id/relation/5ff42fcd-6143-d57a-b7f2-da7c83b7c793.jpeg",
+                        redirect: "/gallery",
+                    },
+                ],
+                init() {
+                    if (localStorage.getItem("qwerty") != "ytrewq") {
+                        Swal.fire({
+                            title: "Enter your password",
+                            input: "password",
+                            inputLabel: "Password",
+                            inputPlaceholder: "Enter your password",
+                            inputAttributes: {
+                                maxlength: "10",
+                                autocapitalize: "off",
+                                autocorrect: "off"
+                            }
+                        }).then(data => {
+                            if (data.value != "26072024") history.back()
+                        });
+                    }
+                }
+            }))
+        </script>
+
+        <header class="nk-header nk-header-opaque">
+            <!--
+        START: Navbar
+
+        Additional Classes:
+            .nk-navbar-lg
+            .nk-navbar-sticky
+            .nk-navbar-autohide
+            .nk-navbar-transparent
+            .nk-navbar-transparent-always
+            .nk-navbar-white-text-on-top
+            .nk-navbar-dark
+    -->
+            <nav class="nk-navbar nk-navbar-top">
+                <div class="container">
+                    <div class="nk-nav-table">
+                        <a href="index.html" class="nk-nav-logo">
+                            <img src="dist/assets/images/logo.svg" alt="" width="31">
+                        </a>
+                        <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
+                            <li>
+                                <a href="/"> Home </a>
+                            </li>
+                            <li>
+                                <a href="/gallery"> Galeri </a>
+                            </li>
+                            <li class="active">
+                                <a href="#"> Perjalanan </a>
+                            </li>
+                        </ul>
+                        <ul class="nk-nav nk-nav-right nk-nav-icons">
+                            <li class="single-icon hidden-lg-up">
+                                <a href="#" class="nk-navbar-full-toggle">
+                                    <span class="nk-icon-burger">
+                                        <span class="nk-t-1"></span>
+                                        <span class="nk-t-2"></span>
+                                        <span class="nk-t-3"></span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- END: Navbar -->
+        </header>
+        <!--
+    START: Navbar Mobile
+
+    Additional Classes:
+        .nk-navbar-align-center
+        .nk-navbar-align-right
+-->
+        <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
+            <div class="nk-nav-table">
+                <div class="nk-nav-row">
+                    <div class="container">
+                        <div class="nk-nav-header">
+                            <div class="nk-nav-logo">
+                                <a href="index.html" class="nk-nav-logo">
+                                    <img src="dist/assets/images/logo-light.svg" alt="" width="31">
+                                </a>
+                            </div>
+                            <div class="nk-nav-close nk-navbar-full-toggle">
+                                <span class="nk-icon-close"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nk-nav-row-full nk-nav-row">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <div class="nk-nav-table">
+                                <div class="nk-nav-row nk-nav-row-full nk-nav-row-center nk-navbar-mobile-content">
+                                    <ul class="nk-nav">
+                                        <!-- Here will be inserted menu from [data-mobile-menu="#nk-nav-mobile"] -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- END: Navbar Mobile -->
+        <div class="nk-main" x-data="data">
+            <div class="container-fluid">
+                <div class="nk-portfolio-single nk-portfolio-single-half">
+
+                    <template x-for="(x, i) in data">
+                        
+                        <div>
+                            <template x-if="i % 2 == 0">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="nk-portfolio-info mlauto pl-40 pb-0">
+                                            <h1 class="nk-portfolio-title" x-html="x.title"></h1>
+                                            <div class="nk-portfolio-text">
+                                                <p x-html="x.description"></p>
+                                            </div>
+                                            <table class="nk-portfolio-details">
+                                                <tr>
+                                                    <td><strong>Lokasi:</strong></td>
+                                                    <td x-html="x.location"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Tanggal:</strong></td>
+                                                    <td x-html="x.date"></td>
+                                                </tr>
+                                            </table>
+                                            <template x-if="x.redirect != ''">
+                                                <a x-bind:href="x.redirect"><button class="btn btn-primary mt-5">Lihat</button></a>
+                                            </template>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="nk-portfolio-images">
+                                            <img style="width: 100%; max-height: 90vh; object-fit: cover;" x-bind:src="x.image" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                            <template x-if="i % 2 == 1">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="nk-portfolio-images">
+                                            <img style="width: 100%; max-height: 90vh; object-fit: cover;" x-bind:src="x.image" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="nk-portfolio-info mlauto pl-40 pb-0">
+                                            <h1 class="nk-portfolio-title" x-html="x.title"></h1>
+                                            <div class="nk-portfolio-text">
+                                                <p x-html="x.description"></p>
+                                            </div>
+                                            <table class="nk-portfolio-details">
+                                                <tr>
+                                                    <td><strong>Lokasi:</strong></td>
+                                                    <td x-html="x.location"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Tanggal:</strong></td>
+                                                    <td x-html="x.date"></td>
+                                                </tr>
+                                            </table>
+                                            <template x-if="x.redirect != ''">
+                                                <a x-bind:href="x.redirect"><button class="btn btn-primary mt-5">Lihat</button></a>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
+                    </template>
+                    
+                </div>
+            </div>
+            <!-- END: Pagination -->
+            <!--
+    START: Footer
+-->
+            <!-- <footer class="nk-footer text-dark-1 bg-gray-4">
+                <div class="container">
+                    <div class="row vertical-gap">
+                        <div class="col-lg-5">
+                            <h3 class="h5 mb-20 text-dark-1">Piroll Design, Inc.</h3>
+                            <p class="mb-0">&copy; 2017 Piroll. All rights reserved. <br> Design by robirurk. Code by nK.</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="#">hello@pirolltheme.com</a>
+                            <br> +44 987 065 908
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="nk-links-list">
+                                <ul>
+                                    <li><a href="#">Projects</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Career</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Events</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#">Legals</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-1">
+                            <div class="nk-links-list">
+                                <ul>
+                                    <li><a href="#">Facebook</a></li>
+                                    <li><a href="#">Twitter</a></li>
+                                    <li><a href="#">Instagram</a></li>
+                                    <li><a href="#">Dribbble</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer> -->
+            <!-- END: Footer -->
+        </div>
+        <!-- START: Scripts -->
+        <!-- GSAP -->
+        <script src="dist/assets/bower_components/gsap/src/minified/TweenMax.min.js"></script>
+        <script src="dist/assets/bower_components/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="dist/assets/bower_components/tether/dist/js/tether.min.js"></script>
+        <script src="dist/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- nK Share -->
+        <script src="dist/assets/plugins/nk-share/nk-share.js"></script>
+        <!-- Sticky Kit -->
+        <script src="dist/assets/bower_components/sticky-kit/dist/sticky-kit.min.js"></script>
+        <!-- Jarallax -->
+        <script src="dist/assets/bower_components/jarallax/dist/jarallax.min.js"></script>
+        <script src="dist/assets/bower_components/jarallax/dist/jarallax-video.min.js"></script>
+        <!-- Flickity -->
+        <script src="dist/assets/bower_components/flickity/dist/flickity.pkgd.min.js"></script>
+        <!-- Isotope -->
+        <script src="dist/assets/bower_components/isotope/dist/isotope.pkgd.min.js"></script>
+        <!-- Photoswipe -->
+        <script src="dist/assets/bower_components/photoswipe/dist/photoswipe.min.js"></script>
+        <script src="dist/assets/bower_components/photoswipe/dist/photoswipe-ui-default.min.js"></script>
+        <!-- Jquery Form -->
+        <script src="dist/assets/bower_components/jquery-form/dist/jquery.form.min.js"></script>
+        <!-- Jquery Validation -->
+        <script src="dist/assets/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+        <!-- Hammer.js -->
+        <script src="dist/assets/bower_components/hammer.js/hammer.min.js"></script>
+        <!-- Social Likes -->
+        <script src="dist/assets/bower_components/social-likes/dist/social-likes.min.js"></script>
+        <!-- NanoSroller -->
+        <script src="dist/assets/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+        <!-- Keymaster -->
+        <script src="dist/assets/bower_components/keymaster/keymaster.js"></script>
+        <!-- Piroll -->
+        <script src="dist/assets/js/piroll.min.js"></script>
+        <script src="dist/assets/js/piroll-init.js"></script>
+        <!-- Demo -->
+        <script src="dist/assets/js/demo.js"></script>
+        <!-- END: Scripts -->
+    </body>
+</html>
